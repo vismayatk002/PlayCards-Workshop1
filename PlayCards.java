@@ -82,11 +82,14 @@ public class PlayCards{
         
         for(Player playerObj : playerList){
 
-            System.out.print("\ncards of "+ playerObj.name +" : ");
+            System.out.print("\n\nCards of "+ playerObj.name +" : ");
             playerObj.getCardList();  
             System.out.print("\n ");   
-            System.out.print("\nunique cards: ");     
+            System.out.print("\nUnique cards: \n");     
             playerObj.getUniqueCards();
+
+            System.out.print("\nDisplay cards based on Rank : ");     
+            playerObj.displayCards();
         }
     }
     public void setPlayerSequence(){
