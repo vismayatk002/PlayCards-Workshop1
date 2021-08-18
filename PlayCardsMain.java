@@ -4,5 +4,6 @@ public class PlayCardsMain{
 
         PlayCards play = new PlayCards();
         play.generateCards();
+        play.addPlayer();
     }
 }
