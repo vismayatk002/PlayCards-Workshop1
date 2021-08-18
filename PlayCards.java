@@ -82,9 +82,11 @@ public class PlayCards{
         
         for(Player playerObj : playerList){
 
-            System.out.print("\n cards of "+ playerObj.name +" : ");
+            System.out.print("\ncards of "+ playerObj.name +" : ");
             playerObj.getCardList();  
-            System.out.print("\n ");    
+            System.out.print("\n ");   
+            System.out.print("\nunique cards: ");     
+            playerObj.getUniqueCards();
         }
     }
     public void setPlayerSequence(){
