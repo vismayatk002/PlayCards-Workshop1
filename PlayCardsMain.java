@@ -11,6 +11,7 @@ public class PlayCardsMain{
         PlayCards play = new PlayCards(playerCount);
         play.generateCards();
         play.addPlayer();
+        play.setPlayerSequence();
         play.distributeCards();
         play.printCardList();
     }

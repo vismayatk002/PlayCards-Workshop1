@@ -36,8 +36,8 @@ public class PlayCards{
             for(int i=1; i<=playerCount; i++){
                 System.out.print(" Enter player "+i+" name : ");
                 String name = sc.nextLine();
-                Player player1 = new Player(name);
-                playerList.add(player1);
+                Player play = new Player(name);
+                playerList.add(play);
             }
         }
     }
@@ -63,7 +63,6 @@ public class PlayCards{
         int min = 0;
         int max = cardsArr.size() - 1;
         int position = (int)(Math.random()  * (max - min + 1) + min);
-        System.out.print("\n Size : "+ cardsArr.size() +", position : " + position);
 
         String returnValue = cardsArr.get(position);
         cardsArr.remove(position);
@@ -83,9 +82,28 @@ public class PlayCards{
         
         for(Player playerObj : playerList){
 
-            System.out.print("\ncards of "+ playerObj.name +" : ");
+            System.out.print("\n cards of "+ playerObj.name +" : ");
             playerObj.getCardList();  
             System.out.print("\n ");    
+        }
+    }
+    public void setPlayerSequence(){
+        
+        Scanner sc = new Scanner(System.in);
+        int PlaylistSize = playerList.size();
+
+        for(int i=0; i < PlaylistSize; i++){
+
+            Player temp = playerList.get(i);
+            System.out.print("\n Set player position for (staring from 0) "+ temp.name +" : ");
+            int newPosition = sc.nextInt();
+            if(newPosition > PlaylistSize || newPosition < 0){
+                System.out.print("\n Invalid position !!");
+                return;
+            }
+
+            playerList.set(i,playerList.get(newPosition));
+            playerList.set(newPosition,temp);
         }
     }
 }    
