@@ -1,9 +1,18 @@
+import java.util.*;
+
 public class PlayCardsMain{
 
     public static void main(String[] args){
 
-        PlayCards play = new PlayCards();
+        Scanner sc = new Scanner(System.in);
+        System.out.print(" Enter number of players :");
+        int playerCount = sc.nextInt();
+
+        PlayCards play = new PlayCards(playerCount);
         play.generateCards();
+        play.printCards();
         play.addPlayer();
+        play.distributeCards();
+        play.printCardList();
     }
 }
