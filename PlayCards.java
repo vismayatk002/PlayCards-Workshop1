@@ -3,7 +3,6 @@ import java.util.*;
 public class PlayCards{
     
     int playerCount;
-    String[] cards = new String[52];
     ArrayList<Player> playerList = new  ArrayList<>();
     ArrayList<String> cardsArr = new  ArrayList<>();
     public PlayCards(int playerCount){
@@ -24,7 +23,7 @@ public class PlayCards{
 
     public void printCards(){
 
-        System.out.print("Cards : ");
+        System.out.println("\nCards ");
         for(int i=0; i<cardsArr.size(); i++){
             System.out.print(" " + cardsArr.get(i) + "\n");
         }
@@ -42,10 +41,30 @@ public class PlayCards{
             }
         }
     }
+    public void shuffleCards(){
+                 
+        for (int i = 0; i < cardsArr.size(); i++)
+        {
+            int min = 0;
+            int max = cardsArr.size() - 1;
+            int position = (int)(Math.random()  * (max - min + 1) + min);
+            int newPosition = (position - i);
+            if(newPosition < 0 || newPosition > 52)
+                newPosition = 0;
+            //swapping the elements
+            String temp = cardsArr.get(newPosition);
+            cardsArr.set(newPosition, cardsArr.get(i));
+            cardsArr.set(i, temp);
+        }      
+    }
     //get each card from cardsArr
     public String getCards(){
 
-        int position = (int)(Math.random());
+        int min = 0;
+        int max = cardsArr.size() - 1;
+        int position = (int)(Math.random()  * (max - min + 1) + min);
+        System.out.print("\n Size : "+ cardsArr.size() +", position : " + position);
+
         String returnValue = cardsArr.get(position);
         cardsArr.remove(position);
         return returnValue;
@@ -55,7 +74,7 @@ public class PlayCards{
             for(Player playerObj : playerList){
                 //adding each card in cardList of each player
                 playerObj.setCardList(getCards());
-
+                shuffleCards();
             }  
         }
     }

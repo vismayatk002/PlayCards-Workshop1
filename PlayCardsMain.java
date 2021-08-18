@@ -5,12 +5,11 @@ public class PlayCardsMain{
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
-        System.out.print(" Enter number of players :");
+        System.out.print("Enter number of players :");
         int playerCount = sc.nextInt();
 
         PlayCards play = new PlayCards(playerCount);
         play.generateCards();
-        play.printCards();
         play.addPlayer();
         play.distributeCards();
         play.printCardList();
